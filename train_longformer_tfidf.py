@@ -15,7 +15,7 @@ import pickle as pkl
 from model.longformer_tfidf import LongformerTFIDFForSequenceClassification
 from data_collator.data_collator_tfidf import DataCollatorTFIDF
 import evaluate
-
+torch.cuda.empty_cache()
 accuracy = evaluate.load("accuracy")
 
 parser = argparse.ArgumentParser()
@@ -32,9 +32,9 @@ parser.add_argument("--epochs", default=5, type=int)
 parser.add_argument("--lr", default=2e-5, type=float)
 parser.add_argument("--seed", default=100, type=int)
 parser.add_argument("--fp16", action="store_true")
-parser.add_argument("--dataset", default="semeval", choices=["semeval", "ildc"])
+parser.add_argument("--dataset", default="ildc", choices=["semeval", "ildc"])
 parser.add_argument(
-    "--tfidf-vectorizer", type=str, default="tfidf_vectorizer-threshold350.pkl"
+    "--tfidf-vectorizer", type=str, default="ildc-tfidf_vectorizer-threshold350.pkl"
 )
 args = parser.parse_args()
 

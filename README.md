@@ -59,10 +59,10 @@ python train_text_classification.py \
 ### Train hierarchical model
 ```
 python train_hierarchical_model.py \
-    --max-length 512 \
+    --max-length 4096 \
     --model-path allenai/longformer-large-4096 \
-    --save-dir models/hierarchical/roberta-large \
-    --log-dir results/hierarchical/roberta-large \
+    --save-dir models/hierarchical/longformer-large \
+    --log-dir results/hierarchical/longformer-large \
     --truncation-side left \
     --dataset ildc \
     --seed 100 \
@@ -71,7 +71,3 @@ python train_hierarchical_model.py \
     --batch-size 2 \
     --gradient-accumulation-steps 32 
 ```
-
-### Experiment Results
-
-In SemEval 2023 Task 6, we (username: bluesky) achieve top-1 ranking in the subtask C1 (Legal Judgment Prediction) and top-2 ranking in  the subtask C2 (Court Judgment Prediction & Explanation). Details: https://codalab.lisn.upsaclay.fr/competitions/9558#results.
