@@ -1,0 +1,46 @@
+{
+  "best_metric": 0.852112676056338,
+  "best_model_checkpoint": "results/longformer-tfidf/longformer-large-seed100/checkpoint-1168",
+  "epoch": 1.9995721009841678,
+  "global_step": 1168,
+  "is_hyper_param_search": false,
+  "is_local_process_zero": true,
+  "is_world_process_zero": true,
+  "log_history": [
+    {
+      "epoch": 0.86,
+      "learning_rate": 1.6575342465753425e-05,
+      "loss": 0.5961,
+      "step": 500
+    },
+    {
+      "epoch": 1.0,
+      "eval_accuracy": 0.8380281690140845,
+      "eval_loss": 0.3813280165195465,
+      "eval_runtime": 721.1213,
+      "eval_samples_per_second": 2.757,
+      "eval_steps_per_second": 0.345,
+      "step": 584
+    },
+    {
+      "epoch": 1.71,
+      "learning_rate": 1.3150684931506849e-05,
+      "loss": 0.4225,
+      "step": 1000
+    },
+    {
+      "epoch": 2.0,
+      "eval_accuracy": 0.852112676056338,
+      "eval_loss": 0.3774460256099701,
+      "eval_runtime": 713.6643,
+      "eval_samples_per_second": 2.786,
+      "eval_steps_per_second": 0.349,
+      "step": 1168
+    }
+  ],
+  "max_steps": 2920,
+  "num_train_epochs": 5,
+  "total_flos": 7.147197833332696e+17,
+  "trial_name": null,
+  "trial_params": null
+}
