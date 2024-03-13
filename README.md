@@ -69,3 +69,7 @@ python train_hierarchical_model.py \
 The dataset was taken from ILDC :- https://github.com/Exploration-Lab/CJPE.
 We requested for the database of Indian Legal Document Corpus from ashutoshm.iitk@gmail.com, vijitvm21@gmail.com. Through this database we ran the base model and obtained the results
 
+### Paper
+
+We re -implemented the model with referance to the paper : https://aclanthology.org/2023.semeval-1.119/
+
