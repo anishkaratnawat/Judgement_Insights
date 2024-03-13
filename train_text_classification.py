@@ -24,11 +24,11 @@ parser.add_argument(
 )
 parser.add_argument("--save-dir", default="models/longformer-large-finetuned")
 parser.add_argument("--log-dir", default="results/longformer-large-finetuned")
-parser.add_argument("--truncation-side", default="left", choices=["left", "right"])
+parser.add_argument("--truncation-side", default="right", choices=["left", "right"])
 parser.add_argument("--batch-size", default=8, type=int)
 parser.add_argument("--gradient-accumulation-steps", default=8, type=int)
 parser.add_argument("--epochs", default=5, type=int)
-parser.add_argument("--dataset", default="semeval", choices=["ildc", "semeval"])
+parser.add_argument("--dataset", default="ildc", choices=["ildc", "semeval"])
 args = parser.parse_args()
 
 print(args)
