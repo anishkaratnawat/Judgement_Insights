@@ -1,0 +1,12 @@
+.env/
+data
+data_collator
+.vscode
+helpers
+model
+*.pt
+*.bin
+*.pth
+Anaconda3-2018.12-Linux-x86_64.sh
+build_vocab.py
+.pkl
