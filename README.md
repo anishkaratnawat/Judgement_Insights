@@ -17,13 +17,6 @@ For ILDC:
 python build_vocab.py --dataset ildc --frequency-threshold 350
 ```
 
-For SemEval 2023 Task 6 subtask 3 dataset:
-```
-python build_vocab.py --dataset semeval --frequency-threshold 100
-```
-Currenly we're using hard code to set tfidf_feature_size. For SemEval dataset, please change the values tfidf_feature_size in the file model/longformer_tfidf.py.
-
-
 #### Train & evaluate model:
 ```
 python train_longformer_tfidf.py \
@@ -70,4 +63,10 @@ python train_hierarchical_model.py \
     --max-n-chunks 3 \
     --batch-size 2 \
     --gradient-accumulation-steps 32 
+```
+
+### Dataset
+```
+The dataset was taken from ILDC :- https://github.com/Exploration-Lab/CJPE.
+We requested for the database of Indian Legal Document Corpus from ashutoshm.iitk@gmail.com, vijitvm21@gmail.com. Through this database we ran the base model and obtained the results
 ```
