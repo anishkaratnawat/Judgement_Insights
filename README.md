@@ -66,7 +66,6 @@ python train_hierarchical_model.py \
 ```
 
 ### Dataset
-```
 The dataset was taken from ILDC :- https://github.com/Exploration-Lab/CJPE.
 We requested for the database of Indian Legal Document Corpus from ashutoshm.iitk@gmail.com, vijitvm21@gmail.com. Through this database we ran the base model and obtained the results
-```
+
