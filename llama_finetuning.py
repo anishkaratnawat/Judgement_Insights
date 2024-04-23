@@ -19,9 +19,9 @@ from tqdm import tqdm
 access_token ="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"
 
 num_train_epochs = 2
-# model_name = "NousResearch/Llama-2-7b-hf"
-model_name = "Equall/Saul-Instruct-v1"
-new_model = f"saul-7b-translation-{num_train_epochs}-epochs"
+model_name = "NousResearch/Llama-2-7b-hf"
+
+new_model = f"llama-2-7b-translation-{num_train_epochs}-epochs"
 # dataset_name = "ZuluLathiya/eng_to_hind"
 # dataset_name = "/data5/home/sahilm/NLP_Project/Dataset/en_to_hi_train_1k.txt"
 # dataset = load_dataset("text", data_files={"train": ["/data5/home/sahilm/NLP_Project/Dataset/en_to_hi_train_1k.txt"]})
@@ -60,7 +60,7 @@ use_nested_quant = False
 ################################################################################
 
 # Output directory where the model predictions and checkpoints will be stored
-output_dir = "/raid/home/anishkar/semeval/output saul"
+output_dir = "/raid/home/anishkar/semeval/output llama"
 
 # Number of training epochs
 # num_train_epochs = 1
@@ -195,7 +195,7 @@ if compute_dtype == torch.float16 and use_4bit:
 model = AutoModelForCausalLM.from_pretrained(
     model_name,
     quantization_config=bnb_config,
-    cache_dir="/raid/home/anishkar/semeval/semeval-2023-legaleval/cache",
+    cache_dir="/raid/home/anishkar/semeval/semeval-2023-legaleval/llama_cache",
     device_map="auto",
     token = access_token
 )
