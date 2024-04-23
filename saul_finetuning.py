@@ -195,7 +195,6 @@ if compute_dtype == torch.float16 and use_4bit:
 model = AutoModelForCausalLM.from_pretrained(
     model_name,
     quantization_config=bnb_config,
-    # cache_dir="/raid/home/anishkar/sahil",
     cache_dir="/raid/home/anishkar/semeval/semeval-2023-legaleval/cache",
     device_map="auto",
     token = access_token
