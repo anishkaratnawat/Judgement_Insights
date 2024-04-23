@@ -25,9 +25,6 @@ def classify_document(document):
     # Extract classifier output
     classifier_output = outputs[0]["generated_text"]
     
-    # Extract reasons and influential sentences (You need to implement this)
-    # reasons = "Explanations:\n" + "... Extract reasons from the output ..."
-    # influential_sentences = "... Extract influential sentences from the output ..."
     
     return classifier_output
 
@@ -61,9 +58,7 @@ for index, row in data.iterrows():
             predicted_labels.append(classifier_output[i]['content'])
             print(f"Classifier Output: {classifier_output[i]['content']}")
     
-    # print(f"Classifier Output: {classifier_output}")
-    # print(reasons)
-    # print(influential_sentences)
+
     print("------------------------------")
 
 # To Download predictions as CSV
