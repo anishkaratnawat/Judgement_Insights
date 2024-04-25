@@ -70,6 +70,24 @@ messages = [
     {"role": "user", "content": "[QUERY GOES HERE]"},
 ]
 ```
+### Fine-Tuning Prompt
+```
+alpaca_prompt = """
+### Instruction: {} 
+### Input: {} 
+### Response: {}"""
+ 
+def preprocess_data4(examples):
+    instruction = "weather this petition will be accepted or rejected in court"
+    text       = examples["text"]
+    label      = examples["label"]
+    texts = []
+    for text, label in zip(text, label):
+        # Must add EOS_TOKEN, otherwise your generation will go on forever!
+        text = alpaca_prompt.format(instruction, text, label) + tokenizer.eos_token
+        texts.append(text)
+    return {"text" : texts}
+```
 ### Dataset
 The dataset was taken from ILDC :- https://github.com/Exploration-Lab/CJPE.
 We requested for the database of Indian Legal Document Corpus from ashutoshm.iitk@gmail.com, vijitvm21@gmail.com. Through this database we ran the base model and obtained the results
