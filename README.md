@@ -64,7 +64,12 @@ python train_hierarchical_model.py \
     --batch-size 2 \
     --gradient-accumulation-steps 32 
 ```
-
+### SaulLM-7b Prompt
+```
+messages = [
+    {"role": "user", "content": "[QUERY GOES HERE]"},
+]
+```
 ### Dataset
 The dataset was taken from ILDC :- https://github.com/Exploration-Lab/CJPE.
 We requested for the database of Indian Legal Document Corpus from ashutoshm.iitk@gmail.com, vijitvm21@gmail.com. Through this database we ran the base model and obtained the results
