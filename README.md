@@ -64,7 +64,19 @@ python train_hierarchical_model.py \
     --batch-size 2 \
     --gradient-accumulation-steps 32 
 ```
+###SaulLM-7b Prompting
+```
+import torch
+from transformers import pipeline
 
+pipe = pipeline("text-generation", model="Equall/Saul-Instruct-v1", torch_dtype=torch.bfloat16, device_map="auto")
+messages = [
+    {"role": "user", "content": "[QUERY GOES HERE]"},
+]
+prompt = pipe.tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+outputs = pipe(prompt, max_new_tokens=256, do_sample=False)
+print(outputs[0]["generated_text"])
+```
 ### Dataset
 The dataset was taken from ILDC :- https://github.com/Exploration-Lab/CJPE.
 We requested for the database of Indian Legal Document Corpus from ashutoshm.iitk@gmail.com, vijitvm21@gmail.com. Through this database we ran the base model and obtained the results
