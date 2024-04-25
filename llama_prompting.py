@@ -1,5 +1,5 @@
 import torch
-from transformers import AutoModelForSequenceClassification, AutoTokenizer
+from transformers import AutoModelForSequenceClassification, AutoTokenizer,    pipeline
 import pandas as pd
 
 
@@ -17,6 +17,10 @@ model = AutoModelForSequenceClassification.from_pretrained(
 
 # Reload tokenizer to save it
 tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
+tokenizer.pad_token = tokenizer.eos_token
+tokenizer.padding_side = "right"
+
+
 # Load your dataset
 dataset_path = "/raid/home/anishkar/semeval/semeval-2023-legaleval/data/SeperatedData/train.csv"
 valid_dataset = pd.read_csv(dataset_path)
@@ -25,10 +29,15 @@ csv_data = {}
 texts = []
 actual_labels = []
 predicted_labels = []
-
+index=40
 for index, row in valid_dataset.iterrows():
     text = row['text']
     label = row['label']
+    if len(text)>20000:
+        continue
+    if index > 1500:
+        break
+    
 
     prompt = f'Explain whether the following petition is accepted or rejected in binary classification. Petition: {text}'
 
@@ -39,10 +48,9 @@ for index, row in valid_dataset.iterrows():
 
     predicted_label = torch.argmax(outputs.logits).item()
 
-    
+    print(index)
     print(predicted_label)
-    if index == 10:
-        break
+    
 
     texts.append(text)
 
@@ -56,4 +64,4 @@ csv_data['Predicted Label'] = predicted_labels
 
 df = pd.DataFrame(csv_data)
 
-df.to_csv("llama_prompting_results.csv", index=False)
+df.to_csv("llama_prompting_results2.csv", index=False)
