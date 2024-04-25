@@ -68,4 +68,4 @@ csv_data['Predicted Label'] = predicted_labels
 
 df = pd.DataFrame(csv_data)
 
-df.to_csv("/data2/home/bhavyac/NLP_Project/saul_prompting_results.csv", index=False)
+df.to_csv("/data2/home/bhavyac/NLP_Project/saul_prompting_results_pretrained.csv", index=False)
